@@ -1,0 +1,4 @@
+# Ignore mkv files and binaries
+*.mkv
+*.bat
+*.exe
