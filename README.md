@@ -4,10 +4,10 @@ DVDoll is a guided CLI tool that walks you through the process of remuxing your 
 <img width="961" height="520" alt="image" src="https://github.com/user-attachments/assets/ced8da45-9abe-4620-89fa-cde7f8059b8b" />
 
 ## How to use
-- Upon opening DVDoll, simply paste the full path to your DVD ISO or folder when it asks for input.
+- Upon opening DVDoll, simply copy the full path to your DVD folder or ISO when it asks for an input.
 - It will then list the titles in your DVD.
 - Using that information, choose the appropriate title and chapters.
-- Name your output file.
+- Name your output file (no need to add `.mkv`).
 
 ## Tips and must-knows
 - You can also drag and drop a file or folder into your terminal at the input prompt.
