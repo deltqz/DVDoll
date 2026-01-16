@@ -2,3 +2,4 @@
 *.mkv
 *.bat
 *.exe
+/build
