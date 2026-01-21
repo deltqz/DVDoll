@@ -32,17 +32,20 @@ jobs:
       - name: Build for Windows (amd64)
         run: |
           CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o dvdoll.exe .
-          zip dvdoll-windows-amd64.zip dvdoll.exe
+          zip dvdoll-windows-x64.zip dvdoll.exe
+          rm dvdoll.exe
 
       - name: Build for Linux (amd64)
         run: |
           CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o dvdoll .
-          zip dvdoll-linux-amd64.zip dvdoll
+          tar -czf dvdoll-linux-x64.tar.gz dvdoll
+          rm dvdoll
 
       - name: Build for macOS (arm64)
         run: |
           CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -trimpath -ldflags="-s -w" -o dvdoll .
-          zip dvdoll-darwin-arm64.zip dvdoll
+          zip dvdoll-mac-arm.zip dvdoll
+          rm dvdoll
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -54,6 +57,6 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            dvdoll-windows-amd64.zip
-            dvdoll-linux-amd64.zip
-            dvdoll-darwin-arm64.zip
+            dvdoll-windows-x64.zip
+            dvdoll-linux-x64.tar.gz
+            dvdoll-mac-arm.zip
