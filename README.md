@@ -1,5 +1,5 @@
 # DVDoll - FFmpeg DVD remuxer
-DVDoll is a guided CLI tool that walks you through the process of remuxing your DVDs to MKV files. No commands, no GUIs; just choose a DVD folder/ISO and the chapters to process. It also detects whether your audio is PCM or AC3/DTS/MP2. In the former case, it converts it to FLAC, otherwise it simply remuxes it.
+DVDoll is a guided CLI tool that walks you through the process of remuxing your DVDs to MKV files. No commands, no GUIs; just choose a DVD folder/ISO and the chapters to process. It also detects whether your audio is PCM or AC3/DTS/MP2. In the former case, it converts it to FLAC, otherwise it simply remuxes it. Requires ffmpeg and ffprobe to be installed and on PATH.
 
 <img width="983" height="507" alt="image" src="https://github.com/user-attachments/assets/18e58ba5-73ce-4a17-b65e-4b1ed7cbefa9" />
 
@@ -16,3 +16,21 @@ DVDoll is a guided CLI tool that walks you through the process of remuxing your 
 - You can use Aegisub or [this useful mpv script](https://github.com/Arieleg/mpv-copyTime/blob/master/copyTime.lua) to easily get the timecode of a frame by pressing Ctrl+C.
 - `0`, `start` and leaving it blank are aliases for `00:00:00`.
 - `last`, `end` and leaving it blank mean "until the end of the video".
+
+## Installation
+### Windows
+Just extract `dvdoll.exe` to any directory.\
+Optionally, add it to PATH to be able to run it from anywhere.
+
+### Linux
+Run this command to install DVDoll to `~/.local/bin/`:
+```sh
+curl -fsL https://github.com/deltqz/dvdoll/releases/latest/download/dvdoll-linux-x64.tar.gz | tar -xzO | install -Dm755 /dev/stdin ~/.local/bin/dvdoll
+```
+
+### macOS
+Extract the binary to `/usr/local/bin/` and then run these commands to make it executable:
+```sh
+chmod +x /usr/local/bin/dvdoll
+xattr -d com.apple.quarantine /usr/local/bin/dvdoll
+```
