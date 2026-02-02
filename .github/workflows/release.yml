@@ -32,32 +32,32 @@ jobs:
       - name: Build for Windows (amd64)
         run: |
           CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o dvdoll.exe .
-          rm -rf dvdoll
-          mkdir dvdoll
-          cp dvdoll.exe dvdoll/
-          cp LICENSE dvdoll/
-          zip -r dvdoll-windows-x64.zip dvdoll
-          rm -rf dvdoll
+          rm -rf package
+          mkdir -p package/dvdoll
+          cp dvdoll.exe package/dvdoll/
+          cp LICENSE package/dvdoll/
+          (cd package && zip -r ../dvdoll-windows-x64.zip dvdoll)
+          rm -rf package
 
       - name: Build for Linux (amd64)
         run: |
           CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o dvdoll .
-          rm -rf dvdoll
-          mkdir dvdoll
-          cp dvdoll dvdoll/
-          cp LICENSE dvdoll/
-          tar -czf dvdoll-linux-x64.tar.gz dvdoll
-          rm -rf dvdoll
+          rm -rf package
+          mkdir -p package/dvdoll
+          cp dvdoll package/dvdoll/
+          cp LICENSE package/dvdoll/
+          (cd package && tar -czf ../dvdoll-linux-x64.tar.gz dvdoll)
+          rm -rf package
 
       - name: Build for macOS (arm64)
         run: |
           CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -trimpath -ldflags="-s -w" -o dvdoll .
-          rm -rf dvdoll
-          mkdir dvdoll
-          cp dvdoll dvdoll/
-          cp LICENSE dvdoll/
-          zip -r dvdoll-mac-arm.zip dvdoll
-          rm -rf dvdoll
+          rm -rf package
+          mkdir -p package/dvdoll
+          cp dvdoll package/dvdoll/
+          cp LICENSE package/dvdoll/
+          (cd package && zip -r ../dvdoll-mac-arm.zip dvdoll)
+          rm -rf package
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
