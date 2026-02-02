@@ -25,7 +25,8 @@ Optionally, add it to PATH to be able to run it from anywhere.
 ### Linux
 Run this command to install DVDoll to `~/.local/bin/`:
 ```sh
-curl -fsL https://github.com/deltqz/dvdoll/releases/latest/download/dvdoll-linux-x64.tar.gz | tar -xzO dvdoll/dvdoll | install -Dm755 /dev/stdin ~/.local/bin/dvdoll
+curl -fsL https://github.com/deltqz/dvdoll/releases/latest/download/dvdoll-linux-x64.tar.gz \
+| tar -xzO dvdoll/dvdoll | install -Dm755 /dev/stdin ~/.local/bin/dvdoll
 ```
 
 ### macOS
